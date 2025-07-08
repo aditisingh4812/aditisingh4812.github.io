@@ -1,127 +1,847 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aditi Singh | Computational Chemist</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Aditi Singh | Computational Chemistry Research</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(to right, #fdfbfb, #ebedee);
+        :root {
+            --primary: #1a3a5f;
+            --secondary: #4a8cbf;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --success: #28a745;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
             margin: 0;
             padding: 0;
-            color: #333;
+            box-sizing: border-box;
         }
+        
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
         header {
-            background-color: #0e76a8;
+            background: linear-gradient(120deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
-            padding: 3rem 1rem;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem 0;
         }
-        header h1 {
-            font-size: 2.5rem;
+        
+        .header-content h1 {
+            font-size: 2.8rem;
             margin-bottom: 0.5rem;
+            color: white;
         }
-        header p {
-            font-size: 1.25rem;
-            margin: 0;
+        
+        .header-content p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
         }
+        
+        .header-decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background: 
+                radial-gradient(circle at 10% 20%, var(--accent) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, var(--accent) 0%, transparent 20%);
+        }
+        
+        /* Navigation */
         nav {
-            background-color: white;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
             display: flex;
-            justify-content: center;
-            gap: 2rem;
-            padding: 1rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
         }
-        nav a {
-            color: #0e76a8;
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
             text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
         }
-        nav a:hover {
-            color: #064f6d;
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--accent);
+            transition: var(--transition);
         }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        /* Section Styles */
         section {
-            max-width: 900px;
-            margin: 2rem auto;
-            background-color: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            padding: 5rem 0;
         }
-        h2 {
-            border-bottom: 2px solid #eee;
-            padding-bottom: 0.5rem;
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
             margin-bottom: 1rem;
         }
-        footer {
-            background-color: #0e76a8;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
+        
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
         }
-        .links a {
-            display: inline-block;
-            margin: 0.5rem;
-            color: #0e76a8;
+        
+        .section-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--gray);
+        }
+        
+        /* Research Section */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .research-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .research-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .research-img {
+            height: 200px;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 4rem;
+        }
+        
+        .research-content {
+            padding: 1.5rem;
+        }
+        
+        .research-content h3 {
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+        }
+        
+        .research-content p {
+            color: var(--gray);
+            margin-bottom: 1.2rem;
+        }
+        
+        .research-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tech-tag {
+            background: var(--light-gray);
+            color: var(--dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
             font-weight: 500;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.7rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn:hover {
+            background: transparent;
+            color: var(--primary);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Projects Section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-header {
+            padding: 1.5rem;
+            background: var(--primary);
+            color: white;
+        }
+        
+        .project-header h3 {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-date {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .project-body {
+            padding: 1.5rem;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        /* About Section */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .profile-img {
+            background: linear-gradient(45deg, var(--secondary), var(--primary));
+            border-radius: 10px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 8rem;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.2rem;
+            color: var(--gray);
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .contact-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            background: var(--light-gray);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .contact-text h4 {
+            margin-bottom: 0.3rem;
+        }
+        
+        .contact-text p, .contact-text a {
+            color: var(--gray);
             text-decoration: none;
         }
-        .links a:hover {
+        
+        .contact-text a:hover {
+            color: var(--primary);
             text-decoration: underline;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--light-gray);
+            border-radius: 50%;
+            color: var(--primary);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-img {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .header-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .header-content p {
+                font-size: 1.1rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Header Section -->
     <header>
-        <h1>Aditi Singh</h1>
-        <p>Computational Chemist</p>
+        <div class="header-decoration"></div>
+        <div class="container header-content">
+            <h1>Dr. Aditi Singh</h1>
+            <p>Computational Chemist | Quantum Chemistry Researcher | Materials Science Specialist</p>
+        </div>
     </header>
-
+    
+    <!-- Navigation -->
     <nav>
-        <a href="#research">Research</a>
-        <a href="#projects">Projects</a>
-        <a href="#conferences">Conferences</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <div class="container nav-container">
+            <a href="#" class="logo">A<span>Research</span></a>
+            <ul class="nav-links">
+                <li><a href="#research">Research</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#conferences">Conferences</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
-
+    
+    <!-- Research Section -->
     <section id="research">
-        <h2>Research</h2>
-        <p>Describe your research interests here: quantum chemistry, DFT, electronic structure theory, etc.</p>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>List and briefly describe your key research/software projects here. Add links if available.</p>
-    </section>
-
-    <section id="conferences">
-        <h2>Conferences & Talks</h2>
-        <p>Add the conferences you’ve attended or presented at, including titles, dates, and links if possible.</p>
-    </section>
-
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am Aditi Singh, a computational chemist passionate about electronic structure methods and molecular simulations.</p>
-    </section>
-
-    <section id="contact">
-        <h2>Contact</h2>
-        <div class="links">
-            <a href="https://github.com/aditisingh4812" target="_blank">GitHub</a>
-            <a href="https://scholar.google.com/citations?user=aQZuKJYAAAAJ&hl=en" target="_blank">Google Scholar</a>
-            <a href="https://www.researchgate.net/profile/Aditi-Singh-122?ev=hdr_xprf" target="_blank">ResearchGate</a>
+        <div class="container">
+            <div class="section-header">
+                <h2>Research Interests</h2>
+                <p>Exploring the frontier of computational chemistry through innovative research and advanced simulations</p>
+            </div>
+            <div class="research-grid">
+                <div class="research-card">
+                    <div class="research-img">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <div class="research-content">
+                        <h3>Quantum Chemical Simulations</h3>
+                        <p>Developing novel approaches for accurate prediction of molecular properties using advanced quantum chemistry methods.</p>
+                        <div class="research-tech">
+                            <span class="tech-tag">DFT</span>
+                            <span class="tech-tag">Ab Initio</span>
+                            <span class="tech-tag">Gaussian</span>
+                        </div>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="research-card">
+                    <div class="research-img">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <div class="research-content">
+                        <h3>Materials Discovery</h3>
+                        <p>High-throughput computational screening for discovery of novel materials with tailored electronic properties.</p>
+                        <div class="research-tech">
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">VASP</span>
+                            <span class="tech-tag">Quantum ESPRESSO</span>
+                        </div>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="research-card">
+                    <div class="research-img">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <div class="research-content">
+                        <h3>Biomolecular Modeling</h3>
+                        <p>Molecular dynamics simulations of protein-ligand interactions for rational drug design.</p>
+                        <div class="research-tech">
+                            <span class="tech-tag">GROMACS</span>
+                            <span class="tech-tag">AMBER</span>
+                            <span class="tech-tag">NAMD</span>
+                        </div>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-
+    
+    <!-- Projects Section -->
+    <section id="projects" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Research Projects</h2>
+                <p>Current and past research initiatives with significant scientific impact</p>
+            </div>
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>DFT Study of Catalytic Mechanisms</h3>
+                        <div class="project-date">2023 - Present</div>
+                    </div>
+                    <div class="project-body">
+                        <p>Investigating reaction pathways in transition metal catalysis using density functional theory to enable more efficient catalyst design.</p>
+                        <p><strong>Funding:</strong> NSF Grant #CHE-2145672</p>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-outline">View Publication</a>
+                            <a href="#" class="btn">Code Repository</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Machine Learning for Molecular Properties</h3>
+                        <div class="project-date">2022 - 2024</div>
+                    </div>
+                    <div class="project-body">
+                        <p>Developing graph neural networks for rapid prediction of molecular electronic properties with quantum-chemical accuracy.</p>
+                        <p><strong>Collaborators:</strong> Stanford University, MIT</p>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-outline">View Publication</a>
+                            <a href="#" class="btn">Dataset</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Open-Source Computational Tools</h3>
+                        <div class="project-date">2021 - Ongoing</div>
+                    </div>
+                    <div class="project-body">
+                        <p>Creating accessible computational chemistry tools to democratize quantum simulations for educational and research purposes.</p>
+                        <p><strong>Downloads:</strong> 15,000+</p>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-outline">Documentation</a>
+                            <a href="#" class="btn">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Conferences Section -->
+    <section id="conferences">
+        <div class="container">
+            <div class="section-header">
+                <h2>Conferences & Talks</h2>
+                <p>Sharing research findings with the scientific community</p>
+            </div>
+            <div class="research-grid">
+                <div class="research-card">
+                    <div class="research-img" style="background: #e3f2fd;">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="research-content">
+                        <h3>ACS National Meeting</h3>
+                        <p>Oral Presentation: "Advances in Multi-scale Modeling of Electrochemical Interfaces"</p>
+                        <p><strong>March 2024 | New Orleans, LA</strong></p>
+                        <a href="#" class="btn btn-outline">View Abstract</a>
+                    </div>
+                </div>
+                
+                <div class="research-card">
+                    <div class="research-img" style="background: #fff3e0;">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="research-content">
+                        <h3>Gordon Research Conference</h3>
+                        <p>Keynote Speaker: "The Future of Quantum Chemistry in Materials Design"</p>
+                        <p><strong>July 2023 | Newport, RI</strong></p>
+                        <a href="#" class="btn btn-outline">View Slides</a>
+                    </div>
+                </div>
+                
+                <div class="research-card">
+                    <div class="research-img" style="background: #e8f5e9;">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="research-content">
+                        <h3>Virtual Symposium</h3>
+                        <p>"High-Performance Computing in Quantum Chemistry: Challenges and Opportunities"</p>
+                        <p><strong>November 2023 | Online</strong></p>
+                        <a href="#" class="btn btn-outline">Watch Recording</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="about-container">
+                <div class="profile-img">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <div class="about-text">
+                    <h3>About Me</h3>
+                    <p>I am Dr. Aditi Singh, a computational chemist with expertise in quantum chemistry, electronic structure theory, and molecular simulations. With a PhD from Stanford University and postdoctoral experience at MIT, I specialize in developing computational methods to solve complex chemical problems.</p>
+                    <p>My research focuses on bridging theoretical chemistry with practical applications in materials science and drug discovery. I lead a research group at the intersection of chemistry, physics, and computer science, developing new algorithms and computational tools.</p>
+                    <p>I am passionate about open science and education, regularly contributing to open-source computational chemistry projects and mentoring the next generation of scientists.</p>
+                    <a href="#" class="btn">Download CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Me</h2>
+                <p>Get in touch for collaborations, speaking engagements, or research inquiries</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <a href="mailto:aditi.singh@research.edu">aditi.singh@research.edu</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Office</h4>
+                            <p>Department of Chemistry<br>Science Building, Room 405<br>Research University</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Phone</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://github.com/aditisingh4812" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=aQZuKJYAAAAJ&hl=en" class="social-link" target="_blank">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="https://www.researchgate.net/profile/Aditi-Singh-122?ev=hdr_xprf" class="social-link" target="_blank">
+                            <i class="fab fa-researchgate"></i>
+                        </a>
+                        <a href="#" class="social-link" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form style="background: white; padding: 2rem; border-radius: 10px; box-shadow: var(--box-shadow);">
+                        <h3 style="margin-bottom: 1.5rem;">Send a Message</h3>
+                        <div style="margin-bottom: 1.5rem;">
+                            <input type="text" placeholder="Your Name" style="width: 100%; padding: 0.8rem; border: 1px solid var(--light-gray); border-radius: 5px;">
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <input type="email" placeholder="Your Email" style="width: 100%; padding: 0.8rem; border: 1px solid var(--light-gray); border-radius: 5px;">
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <input type="text" placeholder="Subject" style="width: 100%; padding: 0.8rem; border: 1px solid var(--light-gray); border-radius: 5px;">
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <textarea placeholder="Your Message" style="width: 100%; padding: 0.8rem; border: 1px solid var(--light-gray); border-radius: 5px; height: 150px;"></textarea>
+                        </div>
+                        <button type="submit" style="background: var(--primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 5px; cursor: pointer; font-weight: 500; transition: var(--transition);">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Aditi Singh</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Aditi Research</h3>
+                    <p style="color: #adb5bd; margin-bottom: 1rem;">Advancing computational chemistry through innovative research and collaboration.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-researchgate"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#research">Research</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#conferences">Conferences</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Research Areas</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Quantum Chemistry</a></li>
+                        <li><a href="#">Materials Discovery</a></li>
+                        <li><a href="#">Drug Design</a></li>
+                        <li><a href="#">Machine Learning</a></li>
+                        <li><a href="#">Software Development</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Science Building, Research University</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> aditi.singh@research.edu</li>
+                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> +1 (555) 123-4567</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Dr. Aditi Singh. All Rights Reserved.</p>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
